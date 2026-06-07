@@ -42,16 +42,18 @@
         <a href="{{ path('manufacture-part:admin.products.index', { id: item.id }) }}"
            class="fw-bolder mb-1 text-decoration-none product-name">
             {{ item.number }}
-        </a> &nbsp;
+        </a>
+
+        {% if item.category_name %}
+            <div>
+                <small class="opacity-50 fw-normal">Категория:</small> &nbsp; <strong>{{ item.category_name }}</strong>
+            </div>
+        {% endif %}
 
         <div>
-            {% if item.category_name %}
-                <small class="opacity-50 fw-normal">Категория:</small> &nbsp; <strong>{{ item.category_name }}</strong>
-                &nbsp;
-            {% endif %}
-
             <small class="opacity-50 fw-normal">Производство:</small> &nbsp; <strong>{{ item.action_name }}</strong>
         </div>
+
         <div>
             <small class="opacity-50 fw-normal">Ответственный:</small> &nbsp; <strong> {{ item.users_profile_username }}
         </div>
